@@ -15,6 +15,7 @@
     <RootNamespace>CUDA_Playground</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>FP8PTX</ProjectName>
+    <CudaToolkitCustomDir>C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.9</CudaToolkitCustomDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -58,8 +59,10 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
-      <CodeGeneration>compute_120,sm_120</CodeGeneration>
-      <AdditionalOptions>-arch=sm_120 -std=c++17 %(AdditionalOptions)</AdditionalOptions>
+      <CodeGeneration>compute_120f,sm_120f</CodeGeneration>
+      <AdditionalOptions> -std=c++17 %(AdditionalOptions)</AdditionalOptions>
+      <FastMath>true</FastMath>
+      <CudaRuntime>Shared</CudaRuntime>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -80,8 +83,10 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
-      <CodeGeneration>compute_120,sm_120</CodeGeneration>
-      <AdditionalOptions>-arch=sm_120 -std=c++17 %(AdditionalOptions)</AdditionalOptions>
+      <CodeGeneration>compute_120f,sm_120f</CodeGeneration>
+      <AdditionalOptions> -std=c++17 %(AdditionalOptions)</AdditionalOptions>
+      <FastMath>true</FastMath>
+      <CudaRuntime>Shared</CudaRuntime>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
